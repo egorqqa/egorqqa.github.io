@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мельников Егор Юрьевич — CDTO</title>
+<style>
+:root{
+  --bg:#0e1116; --bg-soft:#161b23; --card:#161b23; --line:#2a323d;
+  --text:#e8edf5; --muted:#98a4b6; --accent:#4f9cf9; --accent-soft:rgba(79,156,249,.14);
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+html[data-theme="light"]{
+  --bg:#f4f6fa; --bg-soft:#ffffff; --card:#ffffff; --line:#dfe4ec;
+  --text:#141a22; --muted:#5c6879; --accent:#1f6fd0; --accent-soft:rgba(31,111,208,.10);
+  --shadow:0 10px 30px rgba(20,30,50,.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.55; transition:background .3s ease,color .3s ease;
+}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 70px}
+
+/* theme toggle */
+.toggle{
+  position:absolute;top:14px;right:14px;z-index:2;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  width:38px;height:38px;background:var(--bg-soft);border:1px solid var(--line);
+  border-radius:50%;color:var(--muted);padding:0;transition:all .25s ease;
+}
+.toggle:hover{color:var(--accent);border-color:var(--accent);transform:rotate(-15deg)}
+.toggle svg{width:18px;height:18px;display:block}
+html[data-theme="dark"] .icon-sun{display:block}
+html[data-theme="dark"] .icon-moon{display:none}
+html[data-theme="light"] .icon-sun{display:none}
+html[data-theme="light"] .icon-moon{display:block}
+
+/* header */
+.hero{
+  position:relative;display:flex;gap:28px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:26px;box-shadow:var(--shadow);
+}
+.avatar{
+  flex:0 0 auto;width:150px;height:150px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--accent);padding:3px;background:var(--bg-soft);
+}
+.hero h1{margin:0 0 4px;font-size:28px;letter-spacing:.2px}
+.birth{color:var(--muted);font-size:14px;margin-bottom:10px}
+.role{
+  display:inline-block;font-size:16px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border-radius:999px;padding:6px 14px;margin-bottom:14px;
+}
+.contacts{display:flex;flex-wrap:wrap;gap:10px}
+.contacts a{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  color:var(--text);font-size:14px;border:1px solid var(--line);
+  border-radius:10px;padding:7px 12px;background:var(--bg-soft);
+  transition:all .2s ease;
+}
+.contacts a:hover{border-color:var(--accent);color:var(--accent)}
+.contacts svg{width:15px;height:15px;fill:currentColor;opacity:.85}
+
+/* sections */
+section{margin-top:38px}
+h2{
+  font-size:20px;margin:0 0 22px;padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+h2 span{color:var(--accent)}
+
+/* timeline */
+.tl{position:relative;margin-left:74px}
+.tl::before{
+  content:"";position:absolute;left:0;top:-18px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--line),var(--accent) 12%,var(--line));
+}
+.item{position:relative;padding:0 0 26px 26px}
+.item:last-child{padding-bottom:0}
+.item .dot{
+  position:absolute;left:-7px;top:auto;bottom:20px;width:14px;height:14px;border-radius:50%;
+  background:var(--accent);border:3px solid var(--bg);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.item:last-child .dot{bottom:-6px}
+.item .year{
+  position:absolute;left:-74px;top:auto;bottom:16px;width:60px;text-align:right;
+  font-size:14px;font-weight:700;color:var(--accent);
+}
+.item:last-child .year{bottom:-10px}
+.item.nodot .dot{background:var(--line);box-shadow:none;width:10px;height:10px;left:-5px;bottom:22px}
+.item.nodot:last-child .dot{bottom:-4px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:14px 16px;box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease;
+}
+.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.card .t{font-weight:650;font-size:16px}
+.card .org{color:var(--accent);font-size:14px;margin-top:3px}
+.card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+.card li{margin-bottom:4px}
+.card .proj{margin-top:10px;font-size:13px;color:var(--muted)}
+.card .proj b{color:var(--text);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{
+  display:inline-flex;align-items:center;gap:2px;font-size:14px;
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;color:var(--text);box-shadow:var(--shadow);
+  transition:all .2s ease;
+}
+.tag i{font-style:normal;color:var(--accent);font-weight:700}
+.tag:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.about{padding:20px 22px}
+.about p{margin:0 0 12px;color:var(--text);font-size:15px;line-height:1.65}
+.about p:last-child{margin-bottom:0}
+footer{margin-top:50px;text-align:center;color:var(--muted);font-size:13px}
+
+@media (max-width:640px){
+  .wrap{padding:18px 14px 50px}
+  .hero{flex-direction:column;text-align:center;gap:16px;padding:20px}
+  .toggle{top:10px;right:10px;width:34px;height:34px}
+  .avatar{width:120px;height:120px}
+  .contacts{justify-content:center}
+  .hero h1{font-size:22px}
+  .tl{margin-left:0}
+  .item{padding-left:22px;display:flex;flex-direction:column}
+  .item .card{order:1}
+  .item .year{
+    position:static;width:auto;text-align:left;display:block;
+    margin-top:8px;background:var(--accent-soft);border-radius:6px;padding:1px 8px;
+    width:fit-content;order:2;
+  }
+  .item .dot,.item:last-child .dot{bottom:6px}
+  .item.nodot .dot,.item.nodot:last-child .dot{bottom:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <button class="toggle" id="themeBtn" aria-label="Переключить тему" title="Переключить тему">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <img class="avatar" src="img/photo.jpg" alt="Мельников Егор Юрьевич">
+    <div>
+      <h1>Мельников Егор Юрьевич</h1>
+      <div class="birth">08.06.1991</div>
+      <div class="role">Директор по цифровой трансформации (CDTO)</div>
+      <div class="contacts">
+        <a href="mailto:egor054@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>egor054@gmail.com</a>
+        <a href="https://t.me/melnikovegor91" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.8 15.6 9.6 19c.4 0 .6-.2.8-.4l2-1.9 4.1 3c.8.4 1.3.2 1.5-.7l2.7-12.6c.3-1.1-.4-1.6-1.1-1.3L2.5 10c-1.1.4-1.1 1-.2 1.3l4.4 1.4L17 6.4c.5-.3.9-.1.5.2z"/></svg>@melnikovegor91</a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2><span>#</span> Профессиональный опыт</h2>
+    <div class="tl">
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2026</div>
+        <div class="card">
+          <div class="t">Директор по цифровой трансформации Урала (CDTO / Head of AI)</div>
+          <div class="org">УРАЛ</div>
+          <ul>
+            <li>Внедрение систем искусственного интеллекта</li>
+            <li>Обучение сотрудников</li>
+            <li>Разработка цифровых инструментов</li>
+            <li>Аналитика в коммерческом блоке</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2024</div>
+        <div class="card">
+          <div class="t">Руководитель проектов (PM)</div>
+          <div class="org">БС-Технологии</div>
+          <ul>
+            <li>Руководство проектами ИИ</li>
+            <li>Управление командой полного цикла разработки</li>
+            <li>Внедрение инструментов ИИ</li>
+          </ul>
+          <div class="proj"><b>Проекты:</b> Министерство Промышленной Торговли, Фонд Развития Проектов, Росмолодежь</div>
+        </div>
+      </div>
+
+      <div class="item nodot">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="t">Руководитель управления</div>
+          <div class="org">Бюджетные и финансовые технологии</div>
+          <ul>
+            <li>Руководство командой инхаус (25 человек) и аутсорс (25 человек)</li>
+            <li>Сокращение времени выпуска релизов в продакшен (time to market) в 4 раза</li>
+          </ul>
+          <div class="proj"><b>Проект:</b> Работа в России</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2021</div>
+        <div class="card">
+          <div class="t">Руководитель отдела тестирования (Head of QA)</div>
+          <div class="org">РУБЕТЕК РУС</div>
+          <ul>
+            <li>Повышение лояльности пользователей: оценка приложения в Google Play выросла с 3.8 до 4.5</li>
+          </ul>
+          <div class="proj"><b>Проект:</b> Рубетек — умный дом (IoT)</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2019</div>
+        <div class="card">
+          <div class="t">Руководитель отдела тестирования (Head of QA)</div>
+          <div class="org">Skillaz</div>
+          <ul>
+            <li>Отдел тестирования масштабирован в 5 раз</li>
+            <li>Внедрено направление автоматизированного тестирования</li>
+          </ul>
+          <div class="proj"><b>Сфера:</b> HR-Tech (автоматизация подбора)</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2018</div>
+        <div class="card">
+          <div class="t">Заместитель начальника отдела тестирования (Team Lead QA)</div>
+          <div class="org">ФОРС — Центр разработки</div>
+          <ul>
+            <li>Перезапущены процессы и подходы к тестированию</li>
+            <li>Внедрено направление автоматизированного тестирования</li>
+          </ul>
+          <div class="proj"><b>Проекты:</b> Электронный паспорт транспортного средства (ЭПТС), Объединенная диспетчерская служба (ОДС), Росрыболовство</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2017</div>
+        <div class="card">
+          <div class="t">Начальник отдела обеспечения качества (Head of QA)</div>
+          <div class="org">Департамент Информационных технологий города Москвы</div>
+          <ul>
+            <li>Количество обращений снижено в 40 раз (год к году: сентябрь 2017 — сентябрь 2018)</li>
+            <li>Достижение доступности (SLA uptime) 99.96% на основном проекте</li>
+          </ul>
+          <div class="proj"><b>Проекты:</b> Продукт «Образование», Школьный электронный журнал/дневник (ЭЖД)</div>
+        </div>
+      </div>
+
+      <div class="item nodot">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="t">Руководитель группы тестирования и контроля качества (Team Lead QA)</div>
+          <div class="org">Rambler&amp;Co</div>
+          <ul>
+            <li>Выстроен процесс обеспечения качества на 15 медийных и сервисных проектах компании</li>
+            <li>Повышение уровня доступности сервисов (crash free) до 99,6% для мобильных приложений</li>
+          </ul>
+          <div class="proj"><b>Проекты:</b> Рамблер Афиша, Рестораны, Еда, внутренний корпоративный портал, Russian Insider, Рамблер Авто, Quto</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div><div class="year">2015</div>
+        <div class="card">
+          <div class="t">Руководитель отдела обеспечения и контроля качества (Head of QA)</div>
+          <div class="org">Fleasy (Fireart Sp. z o. o.)</div>
+          <ul>
+            <li>Создание отдела тестирования</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span>#</span> Образование</h2>
+    <div class="tl">
+      <div class="item">
+        <div class="dot"></div><div class="year">2026</div>
+        <div class="card">
+          <div class="t">Архитектор в области искусственного интеллекта</div>
+          <div class="org">Университет Иннополис</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="dot"></div><div class="year">2020</div>
+        <div class="card">
+          <div class="t">MBA, Руководство в сфере IT</div>
+          <div class="org">Московская Бизнес Школа</div>
+        </div>
+      </div>
+      <div class="item nodot">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="t">CCNA Exploration</div>
+          <div class="org">Учебный центр Cisco Systems (МТУСИ)</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="dot"></div><div class="year">2013</div>
+        <div class="card">
+          <div class="t">Инженер связи с подвижными объектами</div>
+          <div class="org">Московский Технический Университет Связи и Информатики</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>#</span> Навыки</h2>
+    <div class="tags">
+        <span class="tag"><i>#</i>Искусственный интеллект</span>
+        <span class="tag"><i>#</i>AI</span>
+        <span class="tag"><i>#</i>VibeCoding</span>
+        <span class="tag"><i>#</i>MBA</span>
+        <span class="tag"><i>#</i>Management</span>
+        <span class="tag"><i>#</i>QA</span>
+        <span class="tag"><i>#</i>Python</span>
+        <span class="tag"><i>#</i>JS</span>
+        <span class="tag"><i>#</i>Проектный менеджмент</span>
+        <span class="tag"><i>#</i>Тестирование</span>
+        <span class="tag"><i>#</i>Организация процессов</span>
+        <span class="tag"><i>#</i>Обучение</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>#</span> О себе</h2>
+    <div class="card about">
+      <p>Более 10 лет руковожу продуктовыми и технологическими командами в коммерческой разработке: от отделов обеспечения качества до управлений полного цикла создания цифровых продуктов. За это время прошёл путь от инженера до директора по цифровой трансформации и собрал опыт в медиа, госсекторе, финтехе, HR-Tech и IoT.</p>
+      <p>Сегодня моя основная специализация — внедрение систем искусственного интеллекта: проектирую архитектуру решений, встраиваю ИИ в бизнес-процессы компаний, обучаю команды работе с новыми инструментами и выстраиваю вокруг них устойчивые процессы. Одинаково уверенно работаю и с технической стороной задачи, и с управленческой — от постановки целей и метрик до вывода продукта в продакшен.</p>
+      <p>Высшее техническое образование, степень MBA в области руководства IT, диплом Архитектора систем искусственного интеллекта.</p>
+      <p>Оказываю консультационные услуги: аудит процессов, стратегия цифровой трансформации, внедрение ИИ и обучение команд. Являюсь ментором и автором курсов по инструментам ИИ. Открыт к диалогу.</p>
+    </div>
+  </section>
+
+  <footer>© Мельников Егор Юрьевич</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var saved=null;
+  try{saved=localStorage.getItem('theme')}catch(e){}
+  var theme=saved||'dark';
+  apply(theme);
+  btn.addEventListener('click',function(){
+    theme=(root.getAttribute('data-theme')==='dark')?'light':'dark';
+    apply(theme);
+    try{localStorage.setItem('theme',theme)}catch(e){}
+  });
+  function apply(t){ root.setAttribute('data-theme',t); }
+})();
+</script>
+</body>
+</html>
