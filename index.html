@@ -103,6 +103,30 @@ h2 span{color:var(--accent)}
 .card li{margin-bottom:4px}
 .card .proj{margin-top:10px;font-size:13px;color:var(--muted)}
 .card .proj b{color:var(--text);font-weight:600}
+.card.exp{cursor:pointer;position:relative}
+.card.exp .t{padding-right:26px}
+.chev{
+  position:absolute;right:16px;top:18px;width:9px;height:9px;
+  border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(45deg);transition:transform .3s ease;
+}
+.card.exp.open .chev{transform:rotate(-135deg)}
+.card.exp .details{
+  display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;
+}
+.card.exp.open .details{grid-template-rows:1fr}
+.details-inner{overflow:hidden}
+.card.exp.open .details-inner{padding-top:12px}
+.details .period{
+  font-size:13px;color:var(--accent);border-top:1px dashed var(--line);
+  padding-top:12px;margin-bottom:6px;
+}
+.details h4{margin:12px 0 6px;font-size:14px;color:var(--text)}
+.details ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+.more{
+  margin-top:10px;font-size:13px;color:var(--accent);opacity:.85;user-select:none;
+}
+.card.exp.open .more{opacity:.6}
 .tags{display:flex;flex-wrap:wrap;gap:10px}
 .tag{
   display:inline-flex;align-items:center;gap:2px;font-size:14px;
@@ -148,7 +172,7 @@ footer{margin-top:50px;text-align:center;color:var(--muted);font-size:13px}
     <img class="avatar" src="photo.jpg" alt="Мельников Егор Юрьевич">
     <div>
       <h1>Мельников Егор Юрьевич</h1>
-      <div class="birth">08.06.1991</div>
+      <div class="birth">08.06.1991, Москва</div>
       <div class="role">Директор по цифровой трансформации (CDTO)</div>
       <div class="contacts">
         <a href="mailto:egor054@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>egor054@gmail.com</a>
@@ -163,8 +187,8 @@ footer{margin-top:50px;text-align:center;color:var(--muted);font-size:13px}
 
       <div class="item">
         <div class="dot"></div><div class="year">2026</div>
-        <div class="card">
-          <div class="t">Директор по цифровой трансформации Урала (CDTO / Head of AI)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d0">
+          <div class="t">Директор по цифровой трансформации Урала (CDTO / Head of AI)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">УРАЛ</div>
           <ul>
             <li>Внедрение систем искусственного интеллекта</li>
@@ -172,108 +196,300 @@ footer{margin-top:50px;text-align:center;color:var(--muted);font-size:13px}
             <li>Разработка цифровых инструментов</li>
             <li>Аналитика в коммерческом блоке</li>
           </ul>
+          <div class="details" id="d0">
+            <div class="details-inner">
+              <div class="period">Март 2026 — настоящее время</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Формирование и реализация стратегии цифровой трансформации компании</li>
+              <li>Внедрение систем искусственного интеллекта в производственные и коммерческие процессы</li>
+              <li>Разработка внутренних цифровых инструментов и сервисов</li>
+              <li>Обучение сотрудников работе с ИИ-инструментами, менторство</li>
+              <li>Построение аналитики и отчётности в коммерческом блоке</li>
+              <li>Автоматизация процессов (база знаний, скрипты, n8n, чат-боты, LLM-агенты)</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Создана корпоративная Control Tower — цифровая копия бизнеса, объединяющая ключевые данные компании для принятия управленческих решений</li>
+              <li>Проведена цифровизация бизнес-процессов — операционное управление переведено на Bitrix24</li>
+              <li>Проведена AI-трансформация компании — сотрудники обучены работе с ИИ, инструменты ИИ внедрены в ключевые подразделения, ускорение отдельных задач — до 10 раз</li>
+              <li>Создана data-driven система управления компанией — аналитика и ИИ интегрированы в управление сотрудниками, продажами, маркетингом и поставками</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item">
         <div class="dot"></div><div class="year">2024</div>
-        <div class="card">
-          <div class="t">Руководитель проектов (PM)</div>
-          <div class="org">БС-Технологии</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d1">
+          <div class="t">Руководитель проектов (PM)<span class="chev" aria-hidden="true"></span></div>
+          <div class="org">БС-Технологии (Бизнес Система Технологии)</div>
           <ul>
             <li>Руководство проектами ИИ</li>
             <li>Управление командой полного цикла разработки</li>
             <li>Внедрение инструментов ИИ</li>
           </ul>
           <div class="proj"><b>Проекты:</b> Министерство Промышленной Торговли, Фонд Развития Проектов, Росмолодежь</div>
+          <div class="details" id="d1">
+            <div class="details-inner">
+              <div class="period">Апрель 2024 — Январь 2026</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Руководство портфелем из 3 государственных проектов промышленности</li>
+              <li>Руководство кросс-функциональной командой (аналитики, разработчики, дизайнеры)</li>
+              <li>Сбор и формализация требований, формирование бэклога и планирование спринтов</li>
+              <li>Постановка задач, контроль сроков, бюджета и качества на всех стадиях проекта</li>
+              <li>Тестирование и приёмка исполнения задач</li>
+              <li>Аудит государственных информационных систем (ГИС), разработка методики аудита по требованиям ГосТех</li>
+              <li>Применение стандартов PMBOK, формирование дорожных карт на основе жизненного цикла продукта</li>
+              <li>Моделирование бизнес-процессов в нотации BPMN, анализ продуктовых метрик, A/B-тесты и проверка гипотез</li>
+              <li>Цифровая трансформация ETL-процессов передачи данных в аналитические панели</li>
+              <li>Интеграция AI-инструментов в рабочие процессы, анализ рынка и трендов технологий ИИ</li>
+              <li>Автоматизация процессов (скрипты, n8n, чат-боты)</li>
+              <li>Коммуникации с заказчиками, функциональными руководителями и подрядными организациями</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Ускорено время выполнения процесса передачи данных ETL в 12 раз</li>
+              <li>Повышена эффективность работы аналитической команды (LLM, RAG) в 4 раза</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item nodot">
         <div class="dot"></div>
-        <div class="card">
-          <div class="t">Руководитель управления</div>
-          <div class="org">Бюджетные и финансовые технологии</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d2">
+          <div class="t">Руководитель управления<span class="chev" aria-hidden="true"></span></div>
+          <div class="org">БФТ-Холдинг (Бюджетные и Финансовые Технологии)</div>
           <ul>
             <li>Руководство командой инхаус (25 человек) и аутсорс (25 человек)</li>
             <li>Сокращение времени выпуска релизов в продакшен (time to market) в 4 раза</li>
           </ul>
-          <div class="proj"><b>Проект:</b> Работа в России</div>
+          <div class="proj"><b>Проекты:</b> Работа в России</div>
+          <div class="details" id="d2">
+            <div class="details-inner">
+              <div class="period">Ноябрь 2021 — Декабрь 2023</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Руководство управлением тестирования: внутренняя распределённая команда из 25 специалистов и внешняя команда из 15 автоматизаторов, аутстафф и аутсорс</li>
+              <li>Выстраивание процессов обеспечения качества и полного цикла доставки сборки</li>
+              <li>Планирование работ и распределение ресурсов, бюджетирование и экономическая оптимизация</li>
+              <li>Выстраивание взаимосвязей с другими подразделениями, взаимодействие с заказчиком и подрядными организациями</li>
+              <li>Проработка, внедрение и контроль метрик, подготовка отчётности</li>
+              <li>Внедрение автоматизированного тестирования</li>
+              <li>Найм, адаптация, менторство, развитие и мотивация сотрудников (ИПР)</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Сервисная служба по тестированию интегрирована в проектные команды</li>
+              <li>Сокращено время time to market в 4 раза, внедрены «короткие релизы»</li>
+              <li>Выстроен процесс ускоренного реагирования на инциденты, эскалируемые СТП (соблюдение сроков SLA)</li>
+              <li>Улучшена экономическая эффективность подразделения</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item">
         <div class="dot"></div><div class="year">2021</div>
-        <div class="card">
-          <div class="t">Руководитель отдела тестирования (Head of QA)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d3">
+          <div class="t">Руководитель отдела тестирования (Head of QA)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">РУБЕТЕК РУС</div>
           <ul>
             <li>Повышение лояльности пользователей: оценка приложения в Google Play выросла с 3.8 до 4.5</li>
           </ul>
-          <div class="proj"><b>Проект:</b> Рубетек — умный дом (IoT)</div>
+          <div class="proj"><b>Проекты:</b> Рубетек — умный дом (IoT)</div>
+          <div class="details" id="d3">
+            <div class="details-inner">
+              <div class="period">Август 2021 — Октябрь 2021</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Руководство отделом тестирования: распределённая команда из 15 специалистов по серверной части, мобильному приложению и аппаратному направлению</li>
+              <li>Найм и адаптация специалистов, построение индивидуальных планов развития</li>
+              <li>Выстраивание процессов тестирования и тест-дизайна</li>
+              <li>Тестирование IoT-систем b2b и b2c, мобильного приложения и аппаратной части (железо и прошивки)</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Объединение раздельных направлений тестирования в единый отдел</li>
+              <li>Внедрение тест-трекера TestRail</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item">
         <div class="dot"></div><div class="year">2019</div>
-        <div class="card">
-          <div class="t">Руководитель отдела тестирования (Head of QA)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d4">
+          <div class="t">Руководитель отдела тестирования (Head of QA)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">Skillaz</div>
           <ul>
             <li>Отдел тестирования масштабирован в 5 раз</li>
             <li>Внедрено направление автоматизированного тестирования</li>
           </ul>
           <div class="proj"><b>Сфера:</b> HR-Tech (автоматизация подбора)</div>
+          <div class="details" id="d4">
+            <div class="details-inner">
+              <div class="period">Март 2019 — Август 2021</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Формирование и организация работы отдела тестирования</li>
+              <li>Руководство распределённой командой из 10 функциональных тестировщиков и автоматизаторов</li>
+              <li>Найм и адаптация тестировщиков, построение индивидуальных планов развития</li>
+              <li>Взаимодействие с клиентами и проведение презентаций</li>
+              <li>Внедрение автоматизации тестирования web (фреймворк nightwatch.js, JavaScript)</li>
+              <li>Интеграция с десятками систем: 1С, SAP, SuccessFactors, корпоративные порталы, работные сайты (hh.ru, rabota.ru, worki, zarplata, Яндекс.Таланты, Факультетус), телефония</li>
+              <li>Тестирование web- и mobile-приложений, API backend, БД</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Выстроен процесс тестирования, сокращено время time to market</li>
+              <li>Запущено мобильное приложение (Product Owner mobile application с 01.2021)</li>
+              <li>Собран фреймворк для автоматизированных end-to-end тестов</li>
+              <li>Открытие филиала в Вологде и публичные выступления в государственном университете (ВоГУ)</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item">
         <div class="dot"></div><div class="year">2018</div>
-        <div class="card">
-          <div class="t">Заместитель начальника отдела тестирования (Team Lead QA)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d5">
+          <div class="t">Заместитель начальника отдела тестирования (Team Lead QA)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">ФОРС — Центр разработки</div>
           <ul>
             <li>Перезапущены процессы и подходы к тестированию</li>
             <li>Внедрено направление автоматизированного тестирования</li>
           </ul>
           <div class="proj"><b>Проекты:</b> Электронный паспорт транспортного средства (ЭПТС), Объединенная диспетчерская служба (ОДС), Росрыболовство</div>
+          <div class="details" id="d5">
+            <div class="details-inner">
+              <div class="period">Сентябрь 2018 — Декабрь 2018</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Руководство отделом тестирования: распределённая команда 20+ сотрудников</li>
+              <li>Руководство проектом по тестированию: ресурсное планирование, оценка бюджета, привлечение ресурсов подряда</li>
+              <li>Модернизация устаревших процессов тестирования</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Внедрена система оценки компетенций сотрудников отдела</li>
+              <li>Осуществлён переход к современной системе тест-трекинга (TestRail)</li>
+              <li>Подготовлена программа профессионального развития и обучения сотрудников</li>
+              <li>Преобразованы регламенты работ отдела под унифицированные требования к проектам</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item">
         <div class="dot"></div><div class="year">2017</div>
-        <div class="card">
-          <div class="t">Начальник отдела обеспечения качества (Head of QA)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d6">
+          <div class="t">Начальник отдела обеспечения качества (Head of QA)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">Департамент Информационных технологий города Москвы</div>
           <ul>
             <li>Количество обращений снижено в 40 раз (год к году: сентябрь 2017 — сентябрь 2018)</li>
             <li>Достижение доступности (SLA uptime) 99.96% на основном проекте</li>
           </ul>
           <div class="proj"><b>Проекты:</b> Продукт «Образование», Школьный электронный журнал/дневник (ЭЖД)</div>
+          <div class="details" id="d6">
+            <div class="details-inner">
+              <div class="period">Сентябрь 2017 — Июль 2018</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Организация процессов контроля и обеспечения качества продукта «Образование»</li>
+              <li>Выстраивание взаимодействия с командами подрядных организаций и смежными отделами</li>
+              <li>Внедрение процессов функционального и нагрузочного тестирования</li>
+              <li>Оценка рисков и их нивелирование</li>
+              <li>Формирование отчётности и достижение ключевых параметров эффективности</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Выстроен чётко структурированный процесс обеспечения качества на ИС «Образование»</li>
+              <li>Достижение доступности SLA uptime 99.96% на основном проекте</li>
+              <li>Рост лояльности и удовлетворённости пользователей за счёт повышения стабильности информационных систем</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item nodot">
         <div class="dot"></div>
-        <div class="card">
-          <div class="t">Руководитель группы тестирования и контроля качества (Team Lead QA)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d7">
+          <div class="t">Руководитель группы тестирования и контроля качества (Team Lead QA)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">Rambler&amp;Co</div>
           <ul>
-            <li>Выстроен процесс обеспечения качества на 15 медийных и сервисных проектах компании</li>
+            <li>Выстроен процесс обеспечения качества на 17 медийных и сервисных проектах компании</li>
             <li>Повышение уровня доступности сервисов (crash free) до 99,6% для мобильных приложений</li>
           </ul>
           <div class="proj"><b>Проекты:</b> Рамблер Афиша, Рестораны, Еда, внутренний корпоративный портал, Russian Insider, Рамблер Авто, Quto</div>
+          <div class="details" id="d7">
+            <div class="details-inner">
+              <div class="period">Октябрь 2015 — Сентябрь 2017</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Организация работ по тестированию мобильных приложений и интернет-проектов (команда 7 человек)</li>
+              <li>Обеспечение качества на 17 медийных и сервисных проектах</li>
+              <li>Определение потребностей и выбор инструментария тестирования</li>
+              <li>Ведение отчётной и проектной документации</li>
+              <li>Участие в разработке Матрицы компетенций — системы профессиональных уровней сотрудников</li>
+              <li>Найм, адаптация и обучение сотрудников, индивидуальные планы развития (ИПР)</li>
+              <li>Организация и проведение конференций, работа с сообществом тестировщиков</li>
+              <li>Ведущий инженер по тестированию (10.2015 — 06.2016): функциональное, нагрузочное, интеграционное и автоматизированное тестирование web и mobile, разработка тестовой модели</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Повышение уровня доступности сервисов до 99,6% для мобильных приложений (crash-free)</li>
+              <li>Вывод проекта на западный рынок — от идеи до полноценной реализации</li>
+              <li>Рост с позиции ведущего инженера по тестированию до руководителя группы тестирования</li>
+              <li>Организация и проведение конференций «RamQA», участие в Testathon — A hackathon for testers</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
       <div class="item">
         <div class="dot"></div><div class="year">2015</div>
-        <div class="card">
-          <div class="t">Руководитель отдела обеспечения и контроля качества (Head of QA)</div>
+        <div class="card exp" role="button" tabindex="0" aria-expanded="false" aria-controls="d8">
+          <div class="t">Руководитель отдела обеспечения и контроля качества (Head of QA)<span class="chev" aria-hidden="true"></span></div>
           <div class="org">Fleasy (Fireart Sp. z o. o.)</div>
           <ul>
             <li>Создание отдела тестирования</li>
           </ul>
+          <div class="details" id="d8">
+            <div class="details-inner">
+              <div class="period">Апрель 2015 — Ноябрь 2015</div>
+            <h4>Задачи</h4>
+            <ul>
+              <li>Формирование и организация работы отдела обеспечения качества</li>
+              <li>Подбор и обучение сотрудников отдела</li>
+              <li>Управление распределённой командой из 11 тестировщиков</li>
+            </ul>
+            <h4>Достижения</h4>
+            <ul>
+              <li>Формирование отдела тестирования с нуля</li>
+              <li>Запуск нового продукта на глобальный рынок</li>
+            </ul>
+            </div>
+          </div>
+          <div class="more"></div>
         </div>
       </div>
 
@@ -317,28 +533,50 @@ footer{margin-top:50px;text-align:center;color:var(--muted);font-size:13px}
   <section>
     <h2><span>#</span> Навыки</h2>
     <div class="tags">
+        <span class="tag"><i>#</i>Цифровая трансформация</span>
+        <span class="tag"><i>#</i>CDTO</span>
         <span class="tag"><i>#</i>Искусственный интеллект</span>
-        <span class="tag"><i>#</i>AI</span>
-        <span class="tag"><i>#</i>VibeCoding</span>
+        <span class="tag"><i>#</i>CAIO</span>
+        <span class="tag"><i>#</i>Стратегическое управление</span>
         <span class="tag"><i>#</i>MBA</span>
-        <span class="tag"><i>#</i>Management</span>
+        <span class="tag"><i>#</i>AI</span>
+        <span class="tag"><i>#</i>DataDriven</span>
+        <span class="tag"><i>#</i>Автоматизация бизнеса</span>
+        <span class="tag"><i>#</i>Управление изменениями</span>
+        <span class="tag"><i>#</i>Цифровая модель бизнеса</span>
+        <span class="tag"><i>#</i>VibeCoding</span>
+        <span class="tag"><i>#</i>Архитектор</span>
+        <span class="tag"><i>#</i>AI-агенты</span>
+        <span class="tag"><i>#</i>RAG</span>
+        <span class="tag"><i>#</i>LLM</span>
+        <span class="tag"><i>#</i>Организация процессов</span>
+        <span class="tag"><i>#</i>Проектный менеджмент</span>
+        <span class="tag"><i>#</i>Обучение</span>
         <span class="tag"><i>#</i>QA</span>
         <span class="tag"><i>#</i>Python</span>
         <span class="tag"><i>#</i>JS</span>
-        <span class="tag"><i>#</i>Проектный менеджмент</span>
-        <span class="tag"><i>#</i>Тестирование</span>
-        <span class="tag"><i>#</i>Организация процессов</span>
-        <span class="tag"><i>#</i>Обучение</span>
+
+
+        
+
+
+        
+
+        
+        
+        
     </div>
   </section>
 
-  <section>
+
+    <section>
     <h2><span>#</span> О себе</h2>
     <div class="card about">
-      <p>Более 10 лет руковожу продуктовыми и технологическими командами в коммерческой разработке: от отделов обеспечения качества до управлений полного цикла создания цифровых продуктов. За это время прошёл путь от инженера до директора по цифровой трансформации и собрал опыт в медиа, госсекторе, финтехе, HR-Tech и IoT.</p>
-      <p>Сегодня моя основная специализация — внедрение систем искусственного интеллекта: проектирую архитектуру решений, встраиваю ИИ в бизнес-процессы компаний, обучаю команды работе с новыми инструментами и выстраиваю вокруг них устойчивые процессы. Одинаково уверенно работаю и с технической стороной задачи, и с управленческой — от постановки целей и метрик до вывода продукта в продакшен.</p>
-      <p>Высшее техническое образование, степень MBA в области руководства IT, диплом Архитектора систем искусственного интеллекта.</p>
-      <p>Оказываю консультационные услуги: аудит процессов, стратегия цифровой трансформации, внедрение ИИ и обучение команд. Являюсь ментором и автором курсов по инструментам ИИ. Открыт к диалогу.</p>
+      <p>Более 10 лет руковожу технологическими и продуктовыми командами, прошёл путь от инженера до руководителя цифровой трансформации. Управлял командами и проектами полного цикла в коммерческой разработке, госсекторе, медиа, финтехе, HR-Tech и IoT.</p>
+      <p>Сегодня специализируюсь на <b>цифровой трансформации бизнеса и внедрении искусственного интеллекта</b>. Соединяю стратегию, технологии и бизнес-процессы: определяю направления цифрового развития, создаю цифровые продукты и системы управления, внедряю ИИ в работу подразделений и формирую data-driven подход к принятию решений.</p>
+      <p>Моя сильная сторона — умение работать на стыке <b>бизнеса, управления и технологий</b>: от стратегии и архитектуры решения до его разработки, внедрения, обучения сотрудников и измерения результата.</p>
+      <p><b>MBA в области IT-менеджмента, диплом Архитектора систем искусственного интеллекта, высшее техническое образование</b>.</p>
+      <p>Фокус: <b>AI-трансформация, цифровизация бизнес-процессов, корпоративная аналитика, AI-агенты, RAG/LLM, автоматизация и построение цифровой модели бизнеса</b>.</p>
     </div>
   </section>
 
@@ -358,6 +596,17 @@ footer{margin-top:50px;text-align:center;color:var(--muted);font-size:13px}
     try{localStorage.setItem('theme',theme)}catch(e){}
   });
   function apply(t){ root.setAttribute('data-theme',t); }
+  document.querySelectorAll('.card.exp').forEach(function(c){
+    function t(){
+      var o=c.classList.toggle('open');
+      c.setAttribute('aria-expanded',o?'true':'false');
+      c.querySelector('.more').textContent=o?'':'';
+    }
+    c.addEventListener('click',t);
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}
+    });
+  });
 })();
 </script>
 </body>
